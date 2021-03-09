@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="cart-items" style="display: flex;">
+    
+        <div class="item-name"><input type="text" value="${order[i][0]}" name="pdt_name"></div>
+        <div class="items-quantity"><input type="number" value="${order[i][1]}" name="pdt_qty"></div>
+        <div class="remove"><input type="reset" name="order" value="Yes" class="final"></div>
+    </div>
+</body>
+</html>
+
+<script>
+    function array(){
+    order=[];
+    name=document.getElementsByClassName("cus_name")[0];
+    var cartRows=document.getElementsByClassName('cart-items')
+    for(var i=0;i<cartRows.length;i++){
+        var cartRow=cartRows[i];
+        var nameElement=cartRow.getElementsByClassName("item-name")[0];
+        var name=nameElement.textContent;
+        var quantityElement=cartRow.getElementsByClassName("quantity")[0];
+        var quantity=parseFloat(quantityElement.value);
+        item=[name,quantity];
+        order.push(item);
+    }
+    document.write(`<form method="post"><h1><center>Order<br></h1>`);
+    document.write(`<input type="submit" value="Go back"></form>`);
+    document.write(`<div>`);
+    
+    for(var i=0;i<order.length;i++){
+            document.write(`<form method="post">`);
+            document.write(`<div class="cart-items" style="display: flex;">
+    
+            <div class="item-name"><input type="text" value="${order[i][0]}" name="pdt_name"></div>
+            <div class="items-quantity"><input type="number" value="${order[i][1]}" name="pdt_qty"></div>
+            <div class="remove"><input type="reset" name="order" value="Yes" class="final"></div>
+        </div>`);
+            
+            
+            document.write(`</form>`);
+       
+        document.write("<br>");
+    }
+    
+    document.write(`</div></center>`);
+}
+var finalButtons=document.getElementsByClassName('final');
+for(var i=0;i<finalButtons.length;i++){
+    var button=finalButtons[i]
+    console.log(button);
+    button.addEventListener('click',removefromBill)
+}
+function removefromBill(event){
+    var buttonClicked=event.target
+    buttonClicked.parentElement.parentElement.remove()
+}
+</script>

@@ -1,0 +1,226 @@
+-- phpMyAdmin SQL Dump
+-- version 5.0.3
+-- https://www.phpmyadmin.net/
+--
+-- Host: 127.0.0.1
+-- Generation Time: Mar 09, 2021 at 09:25 PM
+-- Server version: 10.4.14-MariaDB
+-- PHP Version: 7.4.11
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+START TRANSACTION;
+SET time_zone = "+00:00";
+
+--
+-- Database: `canteenautomation`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `admin_login`
+--
+
+CREATE TABLE `admin_login` (
+  `ID` int(5) NOT NULL,
+  `admin_username` varchar(30) NOT NULL,
+  `admin_password` varchar(30) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `admin_login`
+--
+
+INSERT INTO `admin_login` (`ID`, `admin_username`, `admin_password`) VALUES
+(1, 'system', 'root');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `customers`
+--
+
+CREATE TABLE `customers` (
+  `ID` int(5) NOT NULL,
+  `Name` varchar(30) NOT NULL,
+  `Contact_no` bigint(10) NOT NULL,
+  `Username` varchar(20) NOT NULL,
+  `Password` varchar(20) NOT NULL,
+  `Address` varchar(200) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `customers`
+--
+
+INSERT INTO `customers` (`ID`, `Name`, `Contact_no`, `Username`, `Password`, `Address`) VALUES
+(1, 'Adrita Bhattacharya', 9427639782, 'AdritaB', '1234', 'Gujarat');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `employees`
+--
+
+CREATE TABLE `employees` (
+  `ID` int(3) NOT NULL,
+  `Name` varchar(30) NOT NULL,
+  `Contact_no` bigint(10) NOT NULL,
+  `Username` varchar(20) NOT NULL,
+  `Password` varchar(15) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `employees`
+--
+
+INSERT INTO `employees` (`ID`, `Name`, `Contact_no`, `Username`, `Password`) VALUES
+(1, 'Adrita Bhattacharya', 9427639782, '1122', '1234');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `menu`
+--
+
+CREATE TABLE `menu` (
+  `ID` int(3) NOT NULL,
+  `Item_name` varchar(30) NOT NULL,
+  `Item_category` varchar(20) NOT NULL,
+  `Price` int(5) NOT NULL,
+  `Quantity` int(3) NOT NULL,
+  `Image` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `menu`
+--
+
+INSERT INTO `menu` (`ID`, `Item_name`, `Item_category`, `Price`, `Quantity`, `Image`) VALUES
+(1, 'Americano', 'Espresso', 70, 100, 'americano.jfif'),
+(2, 'Apple Juice', 'Juices', 56, 100, 'apple juice.jfif'),
+(3, 'Cappuccino', 'Espresso', 84, 99, 'cappuccino.jfif'),
+(4, 'Carrot Cake', 'Sweets', 200, 92, 'cc.jfif'),
+(5, 'Cheese Chilly Sandwich', 'Sandwiches', 40, 100, 'ccs.jfif'),
+(6, 'Chicken Sandwich', 'Sandwiches', 60, 100, 'chicken sandwich.jfif'),
+(7, 'Croissant', 'Sweets', 99, 100, 'croissant.jfif'),
+(8, 'Litchi Juice', 'Juices', 30, 147, 'litchi.jfif');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `orders`
+--
+
+CREATE TABLE `orders` (
+  `ID` int(3) NOT NULL,
+  `Name` varchar(30) NOT NULL,
+  `pdt_name` varchar(30) NOT NULL,
+  `Qty` int(4) NOT NULL,
+  `prc` int(4) NOT NULL,
+  `Contact_no` bigint(10) NOT NULL,
+  `Address` varchar(150) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `sales`
+--
+
+CREATE TABLE `sales` (
+  `ID` int(3) NOT NULL,
+  `pdt_name` varchar(30) NOT NULL,
+  `pdt_price` int(4) NOT NULL,
+  `pdt_quantity` int(4) NOT NULL,
+  `total` int(6) NOT NULL,
+  `date` date NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `sales`
+--
+
+INSERT INTO `sales` (`ID`, `pdt_name`, `pdt_price`, `pdt_quantity`, `total`, `date`) VALUES
+(1, 'Carrot Cake', 200, 7, 1400, '2021-03-09');
+
+--
+-- Indexes for dumped tables
+--
+
+--
+-- Indexes for table `admin_login`
+--
+ALTER TABLE `admin_login`
+  ADD PRIMARY KEY (`ID`);
+
+--
+-- Indexes for table `customers`
+--
+ALTER TABLE `customers`
+  ADD PRIMARY KEY (`ID`);
+
+--
+-- Indexes for table `employees`
+--
+ALTER TABLE `employees`
+  ADD PRIMARY KEY (`ID`);
+
+--
+-- Indexes for table `menu`
+--
+ALTER TABLE `menu`
+  ADD PRIMARY KEY (`ID`);
+
+--
+-- Indexes for table `orders`
+--
+ALTER TABLE `orders`
+  ADD PRIMARY KEY (`ID`);
+
+--
+-- Indexes for table `sales`
+--
+ALTER TABLE `sales`
+  ADD PRIMARY KEY (`ID`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `admin_login`
+--
+ALTER TABLE `admin_login`
+  MODIFY `ID` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `customers`
+--
+ALTER TABLE `customers`
+  MODIFY `ID` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `employees`
+--
+ALTER TABLE `employees`
+  MODIFY `ID` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `menu`
+--
+ALTER TABLE `menu`
+  MODIFY `ID` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+
+--
+-- AUTO_INCREMENT for table `orders`
+--
+ALTER TABLE `orders`
+  MODIFY `ID` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
+-- AUTO_INCREMENT for table `sales`
+--
+ALTER TABLE `sales`
+  MODIFY `ID` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+COMMIT;

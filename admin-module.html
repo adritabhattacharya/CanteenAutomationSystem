@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="cart.css">
+    <link rel="stylesheet" href="admin-module.css">
+    <title>Document</title>
+</head>
+<body>
+    <button class="tablink" onclick="openPage('Home', this, 'chocolate')"id="defaultOpen">Manage Menu</button>
+<button class="tablink" onclick="openPage('News', this, 'black')" >Manage Inventory</button>
+<button class="tablink" onclick="openPage('Contact', this, 'chocolate')">Manage Employees</button>
+<button class="tablink" onclick="openPage('About', this, 'black')">Sales</button>
+
+<div id="Home" class="tabcontent">
+  <div class="AFIM">
+      <h1><center>Add Food Items to Menu</center></h1>
+      <hr>
+      <br>
+      <center>
+      <b> Item-Name: </b> <input type="text"><br><br>
+      <b> Category:  </b> <select name="Category" id="Category">
+          <option value="Espresso">Espresso</option>
+          <option value="Sweets">Sweets</option>
+          <option value="Sandwiches">Sandwiches</option>
+          <option value="Juices">Juices</option>
+      </select><br><br>
+      <b>Id:</b> <input type="number"><br><br>
+      <b>Price (in Rupees):</b> <input type="number"><br><br>
+      <b>Image: </b><input type="file"><br><br>
+      <button class="c Add_Menu_Items">Add to Menu</button><br><br>
+      </center>
+  </div>
+  <br>
+  <br>
+  <div class="AFIM">
+    <h1><center>Remove Food Items from Menu</center></h1>
+    <hr>
+    <br>
+    <center>
+    <b> Id: </b> <input type="text" id="id"><br><br>
+    <button class="c Remove_menu_item">Remove from Menu</button><br><br>
+    </center>
+</div>
+<br>
+<br>
+<div class="AFIM">
+    <h1><center>Alter Details of Food Items</center></h1>
+    <hr>
+    <br>
+    <center>
+    <b> Id: </b> <input type="text" id="id"><br><br>
+    <button class="c Remove_menu_item">Alter Details</button><br><br>
+    </center>
+</div>
+<br>
+<br>
+</div>
+
+<div id="News" class="tabcontent">
+  <div class="AFIM">
+      <h1><center>Add/Remove Food Items to/From Inventory</center></h1>
+      <hr>
+      <br>
+      <center>
+          <b>Id: </b><input type="text" id="id"><br><br>
+          <b>Quantity: </b><input type="number" id="qty"><br><br>
+          <button class="c">Add to Inventory</button> &nbsp&nbsp<button class="c">Remove From Inventory</button>
+      </center>
+  </div>
+  <br>
+  <br>
+  <div class="AFIM">
+      <h1><center>Inventory</center></h1>
+      <hr>
+      <br>
+      <center>
+          <div class="Inventory_items">
+            <div class="img"><img src="egg and ham.jfif" style="width:50px;height:50px;"></div>
+            <div class="item-name">Egg and Ham Sandwich</div>
+            <div class="item-quantity" value="${qty}" >10</div>
+          </div>
+          <hr>
+          <div class="Inventory_items">
+            <div class="img"><img src="chicken sandwich.jfif" style="width:50px;height:50px;"></div>
+            <div class="item-name">Chicken Sandwich</div>
+            <div class="item-quantity" value="${qty}" >20
+            </div>
+          </div>
+          <hr>
+      </center>
+  </div>
+</div>
+
+<div id="Contact" class="tabcontent">
+
+  <div class="AFIM">
+    <h1><center>Recruit Employee</center></h1>
+    <hr>
+    <br>
+    <center>
+        <b>Employee Id: </b><input type="text" id="id"><br><br>
+        <b>Name: </b><input type="text" id="qty"><br><br>
+        <button class="c">Recruit</button>
+    </center>
+</div>
+<br>
+<br>
+<div class="AFIM">
+    <h1><center>Fire Employee</center></h1>
+    <hr>
+    <br>
+    <center>
+        <b>Employee Id: </b><input type="text" id="id"><br><br>
+        
+        <button class="c">Fire</button>
+    </center>
+</div>
+<br>
+<br>
+<div class="AFIM">
+    <h1><center>Employees</center></h1>
+    <hr>
+    <br>
+    <center>
+        <div class="employee">
+            <div class="name">Mary Poppins</div>
+            <div class="id">10101</div>
+        </div>
+        <br>
+        <div class="employee">
+            <div class="name">Mary Poppins</div>
+            <div class="id">10101</div>
+        </div>
+        <br>
+    </center>
+</div>
+</div>
+
+<div id="About" class="tabcontent">
+    <div class="AFIM">
+        <h1><center>Check Sales</center></h1>
+        <hr>
+        <br>
+        <center>
+            <b>Enter Time Range:</b>From <input type="date"> to  <input type="date"> <br><br>
+            
+            <button class="c">View</button>
+            <br>
+            <br>
+            <table width="50%" style="border: 2px solid black;">
+                <tr><th>ID</th><th>Name</th><th>Quantity</th><th>Price</th><th>Date</th></tr>
+                <tr><td>0010</td><td>Americano</td><td>10</td><td>70</td><td>18-10-2020</td></tr>
+                <tr><td>0010</td><td>Americano</td><td>10</td><td>70</td><td>18-10-2020</td></tr>
+                <tr><td>0010</td><td>Americano</td><td>10</td><td>70</td><td>18-10-2020</td></tr>
+                <tr><td>0010</td><td>Americano</td><td>10</td><td>70</td><td>18-10-2020</td></tr>
+            </table>
+            Total: Rs. <div class="total_earnings">2800</div>
+        </center>
+    </div>
+</div>
+
+<script src="admin-module.js"></script>
+
+</body>
+</html>
+
